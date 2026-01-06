@@ -16,34 +16,43 @@
     </properties>
 
     <!-- Define Maven version -->
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                    <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.3.1</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-                  <plugin>
-                          <groupId>org.sonarsource.scanner.maven</groupId>
-                          <artifactId>sonar-maven-plugin</artifactId>
-                          <version>5.5.0.6356</version>
-               </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+   <build>
+
+    <!-- Plugin versions (already correct) -->
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+
+    <!-- ACTUAL plugins to run -->
+    <plugins>
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>5.5.0.6356</version>
+        </plugin>
+    </plugins>
+
+</build>
+
     
     <!-- Define dependencies -->
     <dependencies>
@@ -54,3 +63,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+</project>
